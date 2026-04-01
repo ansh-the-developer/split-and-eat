@@ -52,7 +52,7 @@ export default function App() {
           : friend,
       ),
     );
-    setSelectedFriend(null)
+    setSelectedFriend(null);
   }
 
   return (
@@ -73,6 +73,7 @@ export default function App() {
 
       {selectedFriend && (
         <FormSplitBill
+          key={selectedFriend.id}
           onSplitBill={handleSplitBill}
           selectedFriend={selectedFriend}
         />
@@ -116,7 +117,7 @@ function Friend({ friend, selectedFriend, onSelection }) {
       )}
       {friend.balance === 0 && (
         <p>
-          You owe {friend.name}  {Math.abs(friend.balance) } and are even.
+          You owe {friend.name} {Math.abs(friend.balance)} and are even.
         </p>
       )}
       <Button onClick={() => onSelection(friend)}>
